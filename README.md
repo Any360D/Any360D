@@ -1,4 +1,4 @@
-## Hi there 👋
+## Hi 👋, This is the official repository for "Any360D: Towards 360 Depth Anything with Unlabeled 360 Data and Mobius Spatial Augmentation"
 
 <!--
 **Any360D/Any360D** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
