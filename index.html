@@ -26,7 +26,7 @@
     <div class="container" id="main">
         <div class="row">
             <h1 class="col-md-12 text-center">
-                EIT-1M: One Million EEG-Image-Text Pairs for Human Visual-Textural Recognition and More<br /> 
+                Towards 360 Depth Anything with Unlabeled 360 Data and Mobius Spatial Augmentation<br /> 
                
             </h1>
         </div>
@@ -38,7 +38,7 @@
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <ul class="nav nav-pills nav-justified">
                     <li>
-			            <a href="https://huggingface.co/datasets/eit-1m/EIT-1M">
+			            <a href="https://huggingface.co/datasets/Any360D/Diverse360">
                         <img src="./images/dataset.png" height="100px"><br>
                             <h4><strong>Dataset</strong></h4>
                         </a>
@@ -62,7 +62,7 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    Recently, electroencephalography (EEG) signals have been actively incorporated to decode brain activity to visual or textual stimuli and achieve object recognition in multi-modal AI. Accordingly, endeavors have been focused on building EEG-based datasets from visual or textual single-modal stimuli. However, these datasets offer limited EEG epochs per category, and the complex semantics of stimuli presented to participants compromise their quality and fidelity in capturing precise brain activity. The study in neuroscience unveils that the relationship between visual and textual stimulus in EEG recordings provides valuable insights into the brain's ability to process and integrate multi-modal information simultaneously. Inspired by this, we propose a novel large-scale multi-modal dataset, named EIT-1M, with over 1 million EEG-image-text pairs. Our dataset is superior in its capacity of reflecting brain activities in simultaneously processing multi-modal information. To achieve this, we collected data pairs while participants viewed alternating sequences of visual-textual stimuli from 60K natural images and category-specific texts. Common semantic categories are also included to elicit better reactions from participants' brains. Meanwhile, response-based stimulus timing and repetition across blocks and sessions are included to ensure data diversity. To verify the effectiveness of EIT-1M, we provide an in-depth analysis of EEG data captured from multi-modal stimuli across different categories and participants, along with data quality scores for transparency. We demonstrate its validity on two tasks: 1) EEG recognition from visual or textual stimuli or both and 2) EEG-to-visual generation.
+                    Recently, Depth Anything Model (DAM) -- a type of depth foundation model --  reveals impressive zero-shot capability for diverse perspective images. Despite its success, it remains an open question regarding DAM's performance on 360 images that enjoy large field-of-view (360°x180°) but suffer from spherical distortions. To this end, we establish, to our knowledge, the \textbf{\textit{first}} benchmark that aims to \textbf{\textit{1)}} evaluate the performance of DAM on 360 images and \textbf{\textit{2)}} develop a powerful 360 DAM for the benefit of the community. For this, we conduct a large suite of experiments that consider the key properties of 360 images, \eg, different 360 representations, various spatial transformations, and diverse indoor and outdoor scenes. This way, our benchmark unveils some key findings, \eg, DAM is less effective for diverse 360 scenes and sensitive to spatial transformations.  To address these challenges, we first collect a large-scale unlabeled dataset including diverse indoor and outdoor scenes.  We then propose a semi-supervised learning (SSL) framework to learn a 360 DAM, dubbed Any360D. Under the umbrella of SSL, Any360D first learns a teacher model by fine-tuning DAM via metric depth supervision. Then, we train the student model by uncovering the potential of large-scale unlabeled data with pseudo labels from the teacher model. Mobius transformation-based spatial augmentation (MTSA) is proposed to impose consistency regularization between the unlabeled data and spatially transformed ones. This subtly improves the student model's robustness to diverse spatial transformations even under severe distortions.  Extensive experiments demonstrate that Any360D outperforms DAM and many prior data-specific models, e.g., PanoFormer across diverse scenes, showing impressive zero-shot capacity for being a 360 depth foundation model.
                 </p>
             </div>
         </div>
@@ -74,65 +74,54 @@
 <div class="row">     
     <div class="col-md-8 col-md-offset-2">
         <h3>
-            Overview of our EIT-1M dataset
+            Benchmark for DAM
+        </h3>
+    <p class="text-justify">
+        We evaluate the performance of DAM from five perspectives: representations, transformations, backbones, indoor/outdoor scenes, and optimization space.
+    </p>
+        <img src="./images/benchmark.jpg" class="img-responsive" alt="vis_res"  class="center" >
+    </div>
+</div>
+	    
+<div class="row">     
+    <div class="col-md-8 col-md-offset-2">
+        <h3>
+            Overview of Our Dataset
         </h3>
     <p class="text-justify">
         
     </p>
-        <img src="./images/overview.png" class="img-responsive" alt="vis_res"  class="center" >
+        <img src="./images/overview.jpg" class="img-responsive" alt="vis_res"  class="center" >
     </div>
 </div>
 
 <div class="row">     
         <div class="col-md-8 col-md-offset-2">
             <h3>
-                Hardware Setup
+                Our Any360D Framework
             </h3>
             <p class="text-justify">
-                We recorded data using a <strong>64-electrode actiCHamp Plus system</strong>, digitized at a rate of 1024 Hz with 24-bit A/D conversion. The montage was arranged according to the international 10-20 System, and the electrode offset was kept below 40 mV. A 22-inch Dell monitor with a resolution of 1080p at 60 Hz was used to display the visual and textual stimuli. <strong>(a)</strong> Experimental setup with monitor 80 cm from participant. <strong>(b)</strong> Injecting conductive gel. <strong>(c)</strong> Visual stimuli. <strong>(d)</strong> Textual stimuli. <strong>(e)</strong> Speech stimuli.
+                Our Any360D contains two stages during the training phase: 1) fine-tuning teacher model with labeled 360 images; 2) training the student model by introducing the  Mobius transform-based spatial augmentation under semi-supervision manner with unlabeled data.
             </p>
 
-            <img src="./images/setup.png" class="img-responsive" alt="vis_res"  class="center" >
+            <img src="./images/Any360D.jpg" class="img-responsive" alt="vis_res"  class="center" >
       	</div>
 </div>
-<div class="row">     
-    <div class="col-md-8 col-md-offset-2">
-        <!-- <h3>
-            Data Analysis
-        </h3> -->
-        <h3>
-            EEG Topographic Maps and Corresponding Signals Analys
-        </h3>
-        <p class="text-justify">
-            Example EEG topographic maps and corresponding signals at all 63 electrodes averaged over events for the participant viewing visual stimuli <strong>left column</strong> viewing the airplane (1st row) and frog (2rd row) images from the CIFAR-10 dataset, and events for the participant viewing textual stimuli <strong>right column</strong> viewing the airplane (1st row) and frog (2rd row) text from the category names of CIFAR-10 dataset. These maps highlight individual and common brain activity patterns associated with both image and text presentation. An event is defined as a specific time point in the experiment.
-        </p>
-
-        <img src="./images/data_1.png" class="img-responsive" alt="vis_res"  class="center" >
-
-        <h3>
-            ERP Analysis
-        </h3>
-        <p class="text-justify">
-            ERPs averaged over occipital and parietal electrodes for the participant viewing stimuli from <strong>(a)</strong> visual images and <strong>(b)</strong> the category text. Shaded areas around the grand average ERP represent standard deviations at each time point.
-        </p>
-        <img src="./images/data_2.png" class="img-responsive" alt="vis_res"  class="center" >
-      </div>
-</div>
 
 <div class="row">     
     <div class="col-md-8 col-md-offset-2">
         <h3>
-            Benchmark Experiments
+             Experiments Results
         </h3>
         <p class="text-justify">
-            <strong>To benchmark our EIT-1M,</strong> we demonstrate its validity on two tasks: <strong>1)</strong> EEG recognition from visual or textual stimuli or both and <strong>2)</strong> EEG-to-visual generation. 
+           
         </p>
 
-        <img src="./images/recog_1.png" class="img-responsive" alt="vis_res"  class="center" >
+        <img src="./images/exp.jpg" class="img-responsive" alt="vis_res"  class="center" >
 
-        <img src="./images/recog_2.png" class="img-responsive" alt="vis_res"  class="center" >
+        <img src="./images/exp2.png" class="img-responsive" alt="vis_res"  class="center" >
 
-        <img src="./images/gen.png" class="img-responsive" alt="vis_res"  class="center" >
+        <img src="./images/exp3.png" class="img-responsive" alt="vis_res"  class="center" >
 
       </div>
 </div>
