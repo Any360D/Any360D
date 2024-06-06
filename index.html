@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EIT-1M</title>
+    <meta name="author" content="anonymous">
+    <meta name="description" content="Project page of EIT-1M">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+
+  </head>
+
+  <body style="text-align: center;">
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                EIT-1M: One Million EEG-Image-Text Pairs for Human Visual-Textural Recognition and More<br /> 
+               
+            </h1>
+        </div>
+
+
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                    <li>
+			            <a href="https://huggingface.co/datasets/eit-1m/EIT-1M">
+                        <img src="./images/dataset.png" height="100px"><br>
+                            <h4><strong>Dataset</strong></h4>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/eit-1m/EIT-1M-Benchmark">
+                        <img src="./images/github_icon.jpg" height="100px"><br>
+                            <h4><strong>Code</strong></h4>
+                        </a>
+                    </li>
+                      
+                    </ul>
+                </div>
+        </div>
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Recently, electroencephalography (EEG) signals have been actively incorporated to decode brain activity to visual or textual stimuli and achieve object recognition in multi-modal AI. Accordingly, endeavors have been focused on building EEG-based datasets from visual or textual single-modal stimuli. However, these datasets offer limited EEG epochs per category, and the complex semantics of stimuli presented to participants compromise their quality and fidelity in capturing precise brain activity. The study in neuroscience unveils that the relationship between visual and textual stimulus in EEG recordings provides valuable insights into the brain's ability to process and integrate multi-modal information simultaneously. Inspired by this, we propose a novel large-scale multi-modal dataset, named EIT-1M, with over 1 million EEG-image-text pairs. Our dataset is superior in its capacity of reflecting brain activities in simultaneously processing multi-modal information. To achieve this, we collected data pairs while participants viewed alternating sequences of visual-textual stimuli from 60K natural images and category-specific texts. Common semantic categories are also included to elicit better reactions from participants' brains. Meanwhile, response-based stimulus timing and repetition across blocks and sessions are included to ensure data diversity. To verify the effectiveness of EIT-1M, we provide an in-depth analysis of EEG data captured from multi-modal stimuli across different categories and participants, along with data quality scores for transparency. We demonstrate its validity on two tasks: 1) EEG recognition from visual or textual stimuli or both and 2) EEG-to-visual generation.
+                </p>
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+
+<div class="row">     
+    <div class="col-md-8 col-md-offset-2">
+        <h3>
+            Overview of our EIT-1M dataset
+        </h3>
+    <p class="text-justify">
+        
+    </p>
+        <img src="./images/overview.png" class="img-responsive" alt="vis_res"  class="center" >
+    </div>
+</div>
+
+<div class="row">     
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+                Hardware Setup
+            </h3>
+            <p class="text-justify">
+                We recorded data using a <strong>64-electrode actiCHamp Plus system</strong>, digitized at a rate of 1024 Hz with 24-bit A/D conversion. The montage was arranged according to the international 10-20 System, and the electrode offset was kept below 40 mV. A 22-inch Dell monitor with a resolution of 1080p at 60 Hz was used to display the visual and textual stimuli. <strong>(a)</strong> Experimental setup with monitor 80 cm from participant. <strong>(b)</strong> Injecting conductive gel. <strong>(c)</strong> Visual stimuli. <strong>(d)</strong> Textual stimuli. <strong>(e)</strong> Speech stimuli.
+            </p>
+
+            <img src="./images/setup.png" class="img-responsive" alt="vis_res"  class="center" >
+      	</div>
+</div>
+<div class="row">     
+    <div class="col-md-8 col-md-offset-2">
+        <!-- <h3>
+            Data Analysis
+        </h3> -->
+        <h3>
+            EEG Topographic Maps and Corresponding Signals Analys
+        </h3>
+        <p class="text-justify">
+            Example EEG topographic maps and corresponding signals at all 63 electrodes averaged over events for the participant viewing visual stimuli <strong>left column</strong> viewing the airplane (1st row) and frog (2rd row) images from the CIFAR-10 dataset, and events for the participant viewing textual stimuli <strong>right column</strong> viewing the airplane (1st row) and frog (2rd row) text from the category names of CIFAR-10 dataset. These maps highlight individual and common brain activity patterns associated with both image and text presentation. An event is defined as a specific time point in the experiment.
+        </p>
+
+        <img src="./images/data_1.png" class="img-responsive" alt="vis_res"  class="center" >
+
+        <h3>
+            ERP Analysis
+        </h3>
+        <p class="text-justify">
+            ERPs averaged over occipital and parietal electrodes for the participant viewing stimuli from <strong>(a)</strong> visual images and <strong>(b)</strong> the category text. Shaded areas around the grand average ERP represent standard deviations at each time point.
+        </p>
+        <img src="./images/data_2.png" class="img-responsive" alt="vis_res"  class="center" >
+      </div>
+</div>
+
+<div class="row">     
+    <div class="col-md-8 col-md-offset-2">
+        <h3>
+            Benchmark Experiments
+        </h3>
+        <p class="text-justify">
+            <strong>To benchmark our EIT-1M,</strong> we demonstrate its validity on two tasks: <strong>1)</strong> EEG recognition from visual or textual stimuli or both and <strong>2)</strong> EEG-to-visual generation. 
+        </p>
+
+        <img src="./images/recog_1.png" class="img-responsive" alt="vis_res"  class="center" >
+
+        <img src="./images/recog_2.png" class="img-responsive" alt="vis_res"  class="center" >
+
+        <img src="./images/gen.png" class="img-responsive" alt="vis_res"  class="center" >
+
+      </div>
+</div>
+
+</div>
+</body>
+</html>
